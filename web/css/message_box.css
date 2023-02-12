@@ -34,6 +34,10 @@
     font-family: var(--fontFamilyBase);
 }
 
+#message-box a,p {
+    font-size: 14px;
+}
+
 
 #message-box-upper {
     padding: 1.5rem;
