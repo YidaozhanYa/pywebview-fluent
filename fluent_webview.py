@@ -119,8 +119,6 @@ class FluentWebView:
                     webview_hwnd = self.windows_get_hwnd()
                     ApplyMica(webview_hwnd, MICAMODE.MICA_DARK)
 
-        self.message_box()
-
     def windows_get_hwnd(self) -> int:
         from ctypes import POINTER, Structure, c_bool, sizeof, windll, pointer, c_int
         from ctypes.wintypes import DWORD, ULONG
