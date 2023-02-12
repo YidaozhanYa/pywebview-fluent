@@ -1,0 +1,21 @@
+@media (prefers-color-scheme: light) {
+    * {
+        --bg1: #f3f3f3;
+        --bg2: #fff;
+        --text: black;
+        --fluent-theme-color: #0067c0;
+        --fluent-theme-color-hover: #115ea3;
+        --comp-txt: #ddd
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    * {
+        --bg1: #202020;
+        --bg2: #2b2b2b;
+        --text: white;
+        --fluent-theme-color: #4cc2ff;
+        --fluent-theme-color-hover: #3d9ec9;
+        --comp-txt: #222
+    }
+}

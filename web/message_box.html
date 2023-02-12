@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="css/message_box.css">
+<link rel="stylesheet" href="css/colors.css">
+<link rel="stylesheet" href="css/fluentui_constants.css">
+<link rel="stylesheet" href="css/button.css">
+<div id="message-box-root">
+    <div id="message-box">
+        <div id="message-box-upper">
+            <div id="message-box-title">Hello World</div>
+            <div id="message-box-content"><p>Hello, world!</p></div>
+        </div>
+        <div id="message-box-lower">
+            <button id="message-box-button-primary" class="fluent-button fluent-button-primary"
+                    onclick="primaryButtonClicked()">Button
+            </button>
+            <button id="message-box-button-secondary" class="fluent-button fluent-button-secondary"
+                    onclick="secondaryButtonClicked()">Button
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    function $id(id) {
+        return document.getElementById(id);
+    }
+
+    function showMessageBox(title, content, primaryButtonText, showSecondaryButton, secondaryButtonText) {
+        $id('message-box-title').innerText = title;
+        if (content.contains('<')) {
+            $id('message-box-content').innerHTML = content;
+        } else {
+            $id('message-box-content').innerHTML = '<p>' + content + '</p>';
+        }
+        $id('message-box-button-primary').innerText = primaryButtonText;
+        if (showSecondaryButton) {
+            $id('message-box-button-secondary').innerText = secondaryButtonText;
+        } else {
+            $id('message-box-button-secondary').style.display = 'none';
+        }
+    }
+
+    function primaryButtonClicked() {
+        $id('message-box').style.opacity = '0';
+        $id('message-box-root').style.opacity = '0';
+        setTimeout(() => {
+            $id('message-box').style.display = 'none';
+            $id('message-box-root').style.display = 'none';
+        }, 250)
+        return_value = true;
+    }
+
+    function secondaryButtonClicked() {
+        $id('message-box').style.opacity = '0';
+        $id('message-box-root').style.opacity = '0';
+        setTimeout(() => {
+            $id('message-box').style.display = 'none';
+            $id('message-box-root').style.display = 'none';
+        }, 250)
+        return_value = false;
+    }
+
+    let return_value = null;
+
+</script>
