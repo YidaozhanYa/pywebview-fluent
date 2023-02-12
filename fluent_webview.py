@@ -24,6 +24,7 @@ class FluentWebView:
             title: str,
             background_type: BackgroundType = BackgroundType.ACRYLIC,
             debug: bool = False,
+            startup_function: callable = None,
             **kwargs
     ):
         self.title = title
@@ -35,6 +36,7 @@ class FluentWebView:
         )
         self.background_type = background_type
         self.debug = debug
+        self.startup_function = startup_function
 
     def init(self):
         match self.background_type:
@@ -118,6 +120,9 @@ class FluentWebView:
                     from win32mica import MICAMODE, ApplyMica
                     webview_hwnd = self.windows_get_hwnd()
                     ApplyMica(webview_hwnd, MICAMODE.MICA_DARK)
+
+        if self.startup_function is not None:
+            self.startup_function(self)
 
     def windows_get_hwnd(self) -> int:
         from ctypes import POINTER, Structure, c_bool, sizeof, windll, pointer, c_int

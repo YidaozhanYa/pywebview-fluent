@@ -7,9 +7,15 @@ if __name__ == '__main__':
     else:
         background_type = BackgroundType.FAKE_MICA_LIGHT
 
+
+    def startup(self):
+        self.message_box()
+
+
     FluentWebView(
         title='Fluent WebView',
         url='web/index.html',
         background_type=background_type,
         debug=True,
+        startup_function=startup
     ).start()
